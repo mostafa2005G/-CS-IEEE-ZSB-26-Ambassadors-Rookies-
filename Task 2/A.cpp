@@ -1,16 +1,34 @@
 #include <iostream>
+#include <string>
 using namespace std;
-int main()
-{
 
-const int size = 5;
+int main() {
+    int t;
+    cin >> t;
 
-int number[size] = {10,2,7,5,3};
-number[0] = 9;
-number[2] *= 3;
-number[4]++;
-cout <<number[4];
+    while (t--) {
+        int n;
+        cin >> n;
 
-return 0 ;
+        string s;
+        cin >> s;
 
+        bool solved[26] = {false};
+        int balloons = 0;
+
+        for (int i = 0; i < n; i++) {
+            int index = s[i] - 'A';
+
+            if (!solved[index]) {
+                balloons += 2;
+                solved[index] = true;
+            } else {
+                balloons += 1;
+            }
+        }
+
+        cout << balloons << endl;
+    }
+
+    return 0;
 }
